@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- IMPORTANT: match your CDN path -->
+  <base href="https://cdn.jsdelivr.net/gh/Sharkii14/sharkii-games@main/bb/">
+
+  <meta charset="utf-8">
+  <title>Burrito Bison</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #gameContainer {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  </style>
+
+  <!-- Load from Build folder -->
+  <script src="Build/UnityLoader.js"></script>
+  <script src="Build/kongregate_api.js"></script>
+
+</head>
+
+<body>
+
+  <div id="gameContainer"></div>
+
+  <script>
+    var gameInstance = UnityLoader.instantiate(
+      "gameContainer",
+      "Build/Web.json",
+      { onProgress: UnityProgress }
+    );
+
+    function UnityProgress(gameInstance, progress) {
+      if (progress === 1) {
+        console.log("Game Loaded");
+      }
+    }
+  </script>
+
+</body>
+</html>
