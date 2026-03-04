@@ -1,0 +1,13 @@
+{
+"companyName": "Juicy Beast Studio",
+"productName": "Burrito Bison",
+"dataUrl": "Web.data",
+"asmCodeUrl": "Web.asm.code",
+"asmMemoryUrl": "Web.asm.memory",
+"asmFrameworkUrl": "Web.asm.framework.js",
+"TOTAL_MEMORY": 536870912,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#000000"
+}
