@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="https://cdn.jsdelivr.net/gh/Sharkii14/sharkii-games@main/BasketballStarCG2/">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">    
+    <title>Basketball Legends</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden !important;
+            background: #000;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #content {
+            width: 100%;
+            height: 100%;
+        }
+        #loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: #000;
+        }
+    </style>
+    <link rel="stylesheet" href="assets/css/app.css" type="text/css">
+</head>
+<body>
+    <div id="content"></div>
+    <div id="loader">Loading ...</div>
+    
+    <script src="https://sdk.crazygames.com/crazygames-sdk-v2.js"></script>
+    <script>
+        // Wait for SDK to be ready
+        window.addEventListener('load', function() {
+            // Check if SDK exists and has ad methods
+            if (window.CrazyGames && window.CrazyGames.SDK && window.CrazyGames.SDK.ad) {
+                // Setup ad callbacks - check if they're functions
+                if (typeof window.CrazyGames.SDK.ad.onCompleted === 'function') {
+                    window.CrazyGames.SDK.ad.onCompleted(function() {
+                        console.log('Ad completed');
+                    });
+                }
+                
+                if (typeof window.CrazyGames.SDK.ad.onSkipped === 'function') {
+                    window.CrazyGames.SDK.ad.onSkipped(function() {
+                        console.log('Ad skipped');
+                    });
+                }
+                
+                if (typeof window.CrazyGames.SDK.ad.onError === 'function') {
+                    window.CrazyGames.SDK.ad.onError(function(error) {
+                        console.log('Ad error:', error);
+                    });
+                }
+            }
+        });
+        
+        // Polyfill for PhaserCachebuster
+        window.PhaserCachebuster = {};
+        
+        // Hide loader when game starts
+        setTimeout(function() {
+            var loader = document.getElementById('loader');
+            var canvas = document.querySelector('canvas');
+            if (canvas && loader) {
+                loader.style.display = 'none';
+            }
+        }, 3000);
+    </script>
+    
+    <script type="text/javascript" src="assets/lib/nape.min.js?v=1"></script>
+    <script type="text/javascript" src="assets/lib/phaser.min.js?v=1"></script>
+    <script type="text/javascript" src="assets/lib/phaser-super-storage.min.js?v=1"></script>
+    <script type="text/javascript" src="assets/lib/dragonBones.min.js?v=1"></script>
+    <script type="text/javascript" src="basketball_legends_2019.min.js?v=1"></script>
+</body>
+</html>
